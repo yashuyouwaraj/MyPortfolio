@@ -1,45 +1,21 @@
 # Yashu's Portfolio
 
-A modern, interactive portfolio website inspired by macOS design with smooth GSAP animations, light/dark theme support, and window management system.
+A modern, interactive portfolio website inspired by macOS design with smooth GSAP animations, light/dark theme support, and window management system. Features beautiful loading animations, synchronized desktop entrance effects, and professional animations throughout.
 
 ## 🎯 Overview
 
-This portfolio is built to showcase projects, skills, and achievements in an immersive desktop-like interface. The design mimics a macOS operating system with draggable windows, animations, and a responsive dock at the bottom. Each window is fully functional with minimize, maximize, and close capabilities.
+This portfolio is built to showcase projects, skills, and achievements in an immersive desktop-like interface. The design mimics a macOS operating system with draggable windows, animations, and a responsive dock at the bottom. Each window is fully functional with minimize, maximize, and close capabilities. The portfolio includes a professional loading screen with progress animation and smooth desktop entrance animations.
 
 ## ✨ Features
 
-### Core Features
-- **Desktop-like Interface**: Fully functional window management system similar to macOS
-- **Dark & Light Modes**: Theme toggle with persistent styling across all components
-- **Smooth Animations**: GSAP-powered animations for window movements, transitions, and hover effects
-- **Responsive Design**: Optimized for desktop and tablet screens
-- **Interactive Dock**: Application launcher with hover scaling effects
-- **Draggable Windows**: All windows support drag-and-drop functionality
-
-### Window Management
-- **Minimize**: Animate windows to dock with smooth scale and opacity transitions
-- **Maximize**: Expand windows to fullscreen with state preservation
-- **Restore**: Bring windows back to original positions and sizes
-- **Close**: Fade-out animation when closing windows
-- **Focus Management**: Bring windows to front on interaction
-
-### Available Windows
-1. **Portfolio (Finder)** - Browse and view all projects with file system-like navigation
-2. **Articles (Safari)** - Display blog posts and external articles
-3. **Gallery (Photos)** - Image gallery with masonry layout
-4. **Contact** - Social media links and contact information
-5. **Skills (Terminal)** - Tech stack and technology expertise display
-6. **Achievements** - Certifications and publications organized by categories
-7. **Resume** - PDF viewer for resume display
-8. **Text Files** - Project descriptions and details
-9. **Image Viewer** - Preview images with full details
-
-### Theme System
-- **Light Mode**: Clean, bright interface with light backgrounds
-- **Dark Mode**: Eye-friendly dark interface with slate color palette
-- **Smooth Transitions**: 0.5s transitions between theme changes
-- **Automatic Styling**: All components automatically adapt to theme changes
-- **Background Images**: Custom backgrounds for each theme mode
+- **Desktop-like Interface** - Fully functional window management with drag, minimize, maximize, close operations
+- **Dark & Light Modes** - Complete theme support with persistent styling across all components and windows
+- **Professional Animations** - GSAP-powered entrance effects, transitions, and interactive animations
+- **Beautiful Loading Screen** - 4-second animation with progress bar, particles, orbiting rings, and profile icon
+- **Responsive Design** - Optimized for desktop and tablet screens
+- **Toggle Windows** - Click navbar items to open/close windows (toggle on second click)
+- **Interactive Dock** - Application launcher with hover scaling effects and visual indicators
+- **9+ Functional Windows** - Finder, Safari, Photos, Contact, Terminal, Achievements, Resume, Text, Image viewer
 
 ## 🛠️ Tech Stack
 
@@ -49,7 +25,7 @@ This portfolio is built to showcase projects, skills, and achievements in an imm
 
 ### Styling & Animation
 - **Tailwind CSS 4.1.17** - Utility-first CSS framework
-- **GSAP 3.13.0** - Professional animation library
+- **GSAP 3.13.0** - Professional animation library with Draggable plugin
 - **@tailwindcss/vite 4.1.17** - Tailwind CSS integration
 
 ### State Management
@@ -122,28 +98,47 @@ src/
 - **Light Background**: `/images/Light.png`
 - **Dark Background**: `/images/wallpaper.png`
 
-## 🎬 Animations
+## 🎬 Animations & Interactions
+
+### Loading Screen Animations (0-4 seconds)
+- **Progress Bar**: Animates from 0% to 100% over 4 seconds
+- **Progress Counter**: Displays percentage with smooth transitions
+- **Floating Particles**: 25 floating elements with cyan, blue, and purple gradients
+- **Orbiting Rings**: Two concentric rings rotating 360° continuously
+- **Profile Icon**: Static centered icon with dark wallpaper background
+- **Logo Pulse**: Smooth breathing effect (1.15x → 1x scale)
+- **Text Animation**: Character-by-character reveal with stagger effect
+
+### Desktop Entrance Animations (Starts at 4s)
+- **Navbar**: Slides down from top with cubic-out easing (0.1s delay, 0.9s duration)
+- **Welcome Section**: Scales from 0.92 to 1 with elastic-out bounce (0.2s delay)
+- **Dock**: Slides up from bottom with cubic-out easing (0.3s delay, 1s duration)
+- **Windows**: Cascade animation with 0.08s stagger (0.6s delay)
+- **Home Component**: Final fade-in effect (0.8s delay)
 
 ### Window Animations
-- **Open**: Fade-in with scale effect (300ms)
-- **Close**: Fade-out with scale down (250ms)
-- **Minimize**: Bounce animation to dock (350ms)
-- **Restore**: Pop-out animation from dock (350ms)
-- **Maximize**: Smooth expansion to fullscreen (350ms)
-- **Drag**: Real-time dragging with GSAP Draggable
+- **Open**: Fade-in with scale effect (300ms, power3.out)
+- **Close**: Fade-out with scale down (250ms, power3.in)
+- **Minimize**: Bounce animation to dock (350ms, power3.out)
+- **Restore**: Pop-out animation from dock (350ms, power3.out)
+- **Maximize**: Smooth expansion to fullscreen (350ms, power3.inOut)
+- **Drag**: Real-time dragging with GSAP Draggable plugin
 
 ### Interactive Animations
 - **Dock Hover**: Icon scaling based on mouse distance (exponential easing)
 - **Text Hover**: Font weight variation on Welcome text
-- **Button Hover**: Scale and brightness effects
+- **Button Hover**: Scale and brightness effects (power2.out)
 - **Window Focus**: Instant z-index update with no animation
 
-### Easing Functions
-- `power3.out` - Window open/restore animations
-- `power3.in` - Window close animations
+### Easing Functions Used
+- `power3.out` - Window open/restore animations (smooth deceleration)
+- `power3.in` - Window close animations (smooth acceleration)
 - `power3.inOut` - Maximize/restore animations
 - `power2.out` - Hover and interactive effects
 - `power1.out` - Dock icon animations
+- `cubic.out` - Navbar and dock entrance animations
+- `elastic.out` - Welcome section bounce effect
+- `sine.inOut` - Pulse and oscillating effects
 
 ## 🚀 Getting Started
 
@@ -154,7 +149,10 @@ src/
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/yashuyouwaraj/My-Portfolio.git
+
+# Navigate to project directory
+cd "React With GSAP/Portfolio"
 
 # Install dependencies
 npm install
@@ -169,141 +167,229 @@ npm run build
 npm run preview
 ```
 
-### Environment Setup
-No environment variables required. All configuration is in `src/constants/index.js`.
+### First Visit Experience
+1. **Loading Screen** (4 seconds) - Watch the beautiful entrance animation with progress bar
+2. **Desktop Entrance** - Elements animate in smoothly after loading
+3. **Explore** - Use navbar, dock, or file system to navigate windows
+4. **Theme Toggle** - Click the theme toggle in top right to switch between light/dark modes
+5. **Window Interaction** - Drag, minimize, maximize, and close windows
 
-## 📝 Configuration
+## ⚙️ Configuration
 
-### Customizing Projects
-Edit `src/constants/index.js` to add or modify projects:
+### Customizing Content
+Edit `src/constants/index.js` to customize:
+- **Projects**: Add your portfolio projects
+- **Tech Stack**: Update your skills and technologies
+- **Social Links**: Add your social media profiles
+- **Navigation Links**: Modify navbar items
+- **Dock Icons**: Customize dock applications
 
-```javascript
-const WORK_LOCATION = {
-  // Add your projects here
-  children: [
-    {
-      id: 1,
-      name: "Your Project",
-      icon: "/images/folder.png",
-      kind: "folder",
-      children: [/* project files */]
-    }
-  ]
-};
-```
+### Dark Mode Colors
+All components automatically support dark mode. To customize dark mode colors:
+1. Edit Tailwind color classes in component files (use `dark:` prefix)
+2. Update CSS in `src/index.css` for custom dark mode styles
+3. Colors automatically sync with theme toggle
 
-### Customizing Tech Stack
-Update the `techStack` constant in `src/constants/index.js`:
+### Background Images
+- **Light Mode**: `/images/Light.png` or any light background
+- **Dark Mode**: `/images/wallpaper.png` or `/images/darkwallpaper.jpg`
 
-```javascript
-const techStack = [
-  {
-    category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"]
-  }
-];
-```
-
-### Customizing Social Links
-Update the `socials` constant in `src/constants/index.js` with your social profiles.
+Update paths in `src/store/theme.js`
 
 ## 🎯 Component Details
 
-### WindowWrapper HOC
-Wraps all window components to provide:
-- Drag functionality
-- Animation state management
+### Key Components
+
+**LoadingScreen.jsx**
+- Professional entrance animation with progress tracking
+- Animated particles and orbiting elements
+- Profile icon display
+- Auto-hides after 4 seconds
+
+**DesktopEntrance.jsx**
+- Staggered animations for desktop elements
+- Smooth reveal of all components
+- Synchronized timing with loading screen
+
+**WindowWrapper.jsx (HOC)**
+Provides all window functionality:
+- Drag and drop with GSAP Draggable
+- Minimize/maximize/close animations
 - Z-index management
-- Focus behavior
+- Animation state handling
+
+**Navbar.jsx**
+- Navigation items with toggle functionality
+- Opens window on first click, closes on second click
+- Theme toggle button
+- Live time display
+
+**Dock.jsx**
+- Application launcher
+- Hover distance-based scaling
+- Dock icon hover effects
+- Active application indication
 
 ### Zustand Stores
 
-**useWindowStore**
-- Manages window open/close state
-- Handles minimize/maximize state
-- Manages z-index for window stacking
-- Stores window position data
+**useWindowStore** (`src/store/window.js`)
+- Manages 9+ window states
+- Handles minimize/maximize/close actions
+- Z-index management for window stacking
+- Position tracking for drag functionality
 
-**useThemeStore**
-- Manages dark/light mode toggle
-- Stores background image URLs
-- Persists theme preference
+**useThemeStore** (`src/store/theme.js`)
+- Dark/light mode toggle
+- Background image management
+- Persistent theme selection
 
-**useLocationStore**
-- Manages current folder navigation
-- Handles sidebar selection
+**useLocationStore** (`src/store/location.js`)
+- File system navigation
+- Folder history tracking
+- Active folder selection
 
-## 🔗 Navigation
+## 🌐 Navigation & Usage
 
-### Using NavLinks
-Click navigation items in the top navbar to open windows directly.
+### Window Toggle Feature
+Click navbar items multiple times:
+- **First Click**: Opens the window
+- **Second Click**: Closes the window
+- **Third Click**: Opens again (toggle pattern)
+
+Applies to: Resume, Contact, Projects, Skills, Gallery, Articles, Achievements
 
 ### Using the Dock
-Click dock icons to open/close applications. Click again to bring window to front.
+- **Click Icon**: Open/close application
+- **Hover**: Scale effect based on distance from cursor
+- **Active Indicator**: Shows which applications are open
 
-### Folder Navigation
-Use the Finder window to browse projects. Click folders to navigate and view project contents.
+### Using Finder (File Browser)
+- Browse projects in file system-like interface
+- Double-click folders to navigate
+- Click files to view details
+- Sidebar for quick navigation
 
-## 📱 Responsive Behavior
+## 🎨 Theme Support
 
-- **Desktop/Laptop**: Full interface with all features enabled
-- **Tablet**: Windows repositioned and scaled appropriately
-- **Mobile**: Warning message - portfolio optimized for larger screens
+### Light Mode
+- Clean, bright interface with white backgrounds
+- Gray text and borders for clarity
+- Blue highlights for interactive elements
+- Professional and minimal design
 
-## 🐛 Code Quality
+### Dark Mode
+- Slate color palette (slate-800, slate-900, slate-950)
+- White text for contrast and readability
+- Blue-600 highlights for active elements
+- Eye-friendly for extended use
+- Proper dark colors applied to all windows including maximized state
+
+### Window Colors in Dark Mode
+All windows properly themed:
+- ✅ Terminal window with dark background
+- ✅ Safari with dark blog styling
+- ✅ Finder with dark sidebar
+- ✅ Contact with dark background
+- ✅ Photos gallery with dark theme
+- ✅ Resume with dark PDF viewer
+- ✅ Text editor with dark background
+- ✅ Image viewer with dark background
+- ✅ Archive window with dark layout
+
+## 📊 Project Structure
+
+```
+src/
+├── components/           # Reusable components
+│   ├── Dock.jsx         # Application launcher dock
+│   ├── Home.jsx         # Desktop folder icons
+│   ├── Navbar.jsx       # Top navigation bar with toggle
+│   ├── ThemeToggle.jsx  # Dark/light mode toggle
+│   ├── Welcome.jsx      # Hero section with animations
+│   ├── WindowControls.jsx # Minimize/maximize/close buttons
+│   ├── LoadingScreen.jsx # Beautiful entrance animation
+│   └── DesktopEntrance.jsx # Desktop animation coordinator
+├── windows/             # Window components (fully themed)
+│   ├── ArchiveWindow.jsx
+│   ├── AchievementPDF.jsx
+│   ├── Contact.jsx
+│   ├── Finder.jsx
+│   ├── Image.jsx
+│   ├── Photos.jsx
+│   ├── Resume.jsx
+│   ├── Safari.jsx
+│   ├── Terminal.jsx
+│   └── Text.jsx
+├── store/               # Zustand state management
+│   ├── location.js
+│   ├── theme.js
+│   └── window.js
+├── hoc/                 # Higher-order components
+│   └── WindowWrapper.jsx
+├── utils/               # Utility functions
+│   └── windowAnimations.js
+├── constants/           # Application configuration
+│   └── index.js
+├── App.jsx              # Main app component
+├── index.css            # Global styles with dark mode
+└── main.jsx             # React entry point
+```
+
+## 🏗️ Build & Deployment
+
+### Development
+```bash
+npm run dev
+```
+Starts Vite dev server with HMR on `http://localhost:5173`
+
+### Production Build
+```bash
+npm run build
+```
+Creates optimized build in `dist/` directory
+
+### Preview Build
+```bash
+npm run preview
+```
+Locally preview the production build
+
+## ✅ Quality & Performance
 
 - **ESLint**: JavaScript linting configured
 - **Vite HMR**: Hot Module Replacement for fast development
-- **Path Aliases**: Easy imports with `#` prefix:
+- **Path Aliases**: Easy imports with `#` prefix
   - `#components` → `src/components`
   - `#windows` → `src/windows`
   - `#store` → `src/store`
   - `#hoc` → `src/hoc`
   - `#utils` → `src/utils`
   - `#constants` → `src/constants`
+- **Code Splitting**: Automatic by Vite
+- **Animation Performance**: Optimized GSAP tweens (60fps)
+- **No Memory Leaks**: Proper cleanup in useEffect hooks
 
-## 🌐 Build & Deployment
+## 🎓 Technologies Demonstrated
 
-### Development
-```bash
-npm run dev
-```
-
-### Production Build
-```bash
-npm run build
-```
-
-Output files are in the `dist/` directory.
-
-### Preview Build Locally
-```bash
-npm run preview
-```
-
-## 📦 Dependencies
-
-All dependencies are production-ready and actively maintained:
-- React & React DOM for UI
+- React 19 with modern hooks
 - GSAP for professional animations
-- Zustand for lightweight state management
-- Tailwind CSS for utility-first styling
-- Lucide React for consistent icons
-
-## 🎓 Learning Resources
-
-This portfolio demonstrates:
-- **React Hooks**: useRef, useEffect, custom hooks
-- **State Management**: Zustand with Immer middleware
-- **GSAP Animations**: Timelines, tweens, and Draggable
-- **Higher-Order Components**: WindowWrapper pattern
-- **Tailwind CSS**: Responsive design and dark mode
-- **Performance**: Code splitting and lazy loading
+- Zustand for state management
+- Tailwind CSS for responsive design
+- HOC pattern for component composition
+- Dark mode implementation
+- Window management system
+- Drag and drop functionality
+- PDF viewing
+- Dynamic image galleries
 
 ## 📄 License
 
-This portfolio is personal work and available for reference.
+Personal portfolio project - Available for reference and inspiration.
 
-## 🙏 Acknowledgments
+## 🙌 Credits & Inspiration
 
-Built with modern web technologies and best practices for an immersive portfolio experience.
+- macOS design inspiration for desktop interface
+- GSAP for smooth, professional animations
+- Tailwind CSS for modern utility-first styling
+- React ecosystem best practices
