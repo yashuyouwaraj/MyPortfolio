@@ -384,6 +384,14 @@ body {
     @apply font-bold text-sm text-center w-full;
   }
 
+  #txtfile h3 {
+    @apply text-xl font-semibold;
+  }
+
+  #txtfile p {
+    @apply text-base;
+  }
+
   #imgfile {
     @apply absolute top-40 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
     width: 36rem;
@@ -833,16 +841,20 @@ body {
     @apply bg-slate-900/90 text-white border border-slate-700/50;
   }
 
+  :root.dark #txtfile > div {
+    @apply bg-slate-900;
+  }
+
   :root.dark #txtfile h2 {
     @apply text-white;
   }
 
   :root.dark #txtfile h3 {
-    @apply text-slate-200;
+    @apply text-slate-100;
   }
 
   :root.dark #txtfile p {
-    @apply text-gray-800;
+    @apply text-slate-200;
   }
 
   :root.dark #imgfile {
