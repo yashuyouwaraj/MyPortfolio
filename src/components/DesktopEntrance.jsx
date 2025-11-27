@@ -4,6 +4,29 @@ import gsap from "gsap";
 const DesktopEntrance = ({ isVisible, children }) => {
   const contentRef = useRef(null);
 
+  // Initialize hidden state for all elements
+  useEffect(() => {
+    if (contentRef.current && !isVisible) {
+      // Hide all content when not visible
+      gsap.set(contentRef.current, { opacity: 0 });
+      
+      const navbar = contentRef.current.querySelector("nav");
+      const welcome = contentRef.current.querySelector("[class*='welcome']");
+      const dock = contentRef.current.querySelector("[class*='dock']");
+      const windows = contentRef.current.querySelectorAll(
+        "[class*='window'], [class*='finder'], [class*='safari'], [class*='terminal']"
+      );
+      const home = contentRef.current.querySelector("[class*='home']");
+
+      // Set initial hidden states
+      if (navbar) gsap.set(navbar, { opacity: 0, y: -30 });
+      if (welcome) gsap.set(welcome, { opacity: 0, scale: 0.95 });
+      if (dock) gsap.set(dock, { opacity: 0, y: 50 });
+      if (windows.length > 0) gsap.set(windows, { opacity: 0, scale: 0.9, y: 20 });
+      if (home) gsap.set(home, { opacity: 0 });
+    }
+  }, [isVisible]);
+
   useEffect(() => {
     if (!isVisible || !contentRef.current) return;
 

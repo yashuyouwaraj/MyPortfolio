@@ -152,9 +152,14 @@ const LoadingScreen = ({ onComplete }) => {
       }
     );
 
-    // Animate progress bar fill to match counter
-    tl.to(
+    // Animate progress bar fill from 0 to 100% to match counter
+    // Start with scaleX: 0 and animate to scaleX: 1
+    tl.fromTo(
       progressBarRef.current,
+      {
+        scaleX: 0,
+        opacity: 1,
+      },
       {
         scaleX: 1,
         opacity: 1,
