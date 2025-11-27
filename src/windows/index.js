@@ -6,5 +6,6 @@ import Text from "#windows/Text";
 import ImageContent from "#windows/Image"
 import Contact from "#windows/Contact";
 import Photos from "#windows/Photos";
+import ArchiveWindow from "#windows/ArchiveWindow.jsx";
 
-export {Terminal,Safari,Resume,Finder,Text,ImageContent,Contact,Photos};
+export {Terminal,Safari,Resume,Finder,Text,ImageContent,Contact,Photos,ArchiveWindow};

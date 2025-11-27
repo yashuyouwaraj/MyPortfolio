@@ -67,10 +67,10 @@ const dockApps = [
     canOpen: true,
   },
   {
-    id: "trash",
+    id: "archive",
     name: "Archive", // was "Trash"
     icon: "trash.png",
-    canOpen: false,
+    canOpen: true,
   },
 ];
 
@@ -493,14 +493,15 @@ export const locations = {
 const INITIAL_Z_INDEX = 1000;
 
 const WINDOW_CONFIG = {
-  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
+  contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
+  resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
+  safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
+  photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
+  terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
+  txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
+  imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
+  archive: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
