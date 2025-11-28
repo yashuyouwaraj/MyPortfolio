@@ -51,6 +51,7 @@ const WindowWrapper = (Component, windowKey) => {
       const [instance] = Draggable.create(el, {
         onPress: () => {
           isAnimatingRef.current = true;
+          // Always bring to front when starting to drag
           focusWindow(windowKey);
         },
         onDragEnd: () => {
@@ -60,15 +61,15 @@ const WindowWrapper = (Component, windowKey) => {
       });
 
       return () => instance.kill();
-    }, [isMinimized, isMaximized]);
+    }, [isMinimized, isMaximized, focusWindow, windowKey]);
 
     // Add click handler to restore from minimized state or focus window
     const handleWindowClick = () => {
       if (isMinimized) {
         // If minimized, restore it and bring to front
         restoreWindow(windowKey);
-      } else if (isOpen && !isMinimized) {
-        // If open and not minimized, focus it (bring to front)
+      } else if (isOpen) {
+        // Always bring to front when clicked (even if already open and not minimized)
         focusWindow(windowKey);
       }
     };
@@ -79,13 +80,13 @@ const WindowWrapper = (Component, windowKey) => {
         ref={ref}
         data-maximized={isMaximized}
         style={{
-          zIndex,
+          zIndex: isOpen ? zIndex : -1,
           cursor: isMinimized ? "pointer" : "auto",
           pointerEvents: isOpen ? "auto" : "none",
           minWidth: "300px",
           minHeight: "200px",
+          position: "absolute",
         }}
-        className="absolute"
         onClick={handleWindowClick}
       >
         <Component {...props} />

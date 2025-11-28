@@ -15,6 +15,7 @@ const WindowControls = ({ target }) => {
     minimizeWindow,
     maximizeWindow,
     restoreFromMaximize,
+    focusWindow,
     windows,
   } = useWindowStore();  const controlsRef = useRef(null);
   const isAnimatingRef = useRef(false);
@@ -50,6 +51,9 @@ const WindowControls = ({ target }) => {
   const handleClose = async () => {
     if (isAnimatingRef.current) return;
     isAnimatingRef.current = true;
+    
+    // Bring to front first
+    focusWindow(target);
 
     try {
       const windowEl = document.getElementById(target);
@@ -71,6 +75,9 @@ const WindowControls = ({ target }) => {
   const handleMinimize = async () => {
     if (isAnimatingRef.current) return;
     isAnimatingRef.current = true;
+    
+    // Bring to front first
+    focusWindow(target);
 
     try {
       const windowEl = document.getElementById(target);
@@ -92,6 +99,9 @@ const WindowControls = ({ target }) => {
   const handleMaximize = async () => {
     if (isAnimatingRef.current) return;
     isAnimatingRef.current = true;
+    
+    // Bring to front first
+    focusWindow(target);
 
     try {
       const windowEl = document.getElementById(target);
