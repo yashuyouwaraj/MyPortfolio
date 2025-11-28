@@ -13,8 +13,7 @@ const Contact = () => {
         <img src="/images/adrian.jpg" alt="Adrian" className='w-20 rounded-full' />
 
         <h3>Let's Connect</h3>
-        <p>Got an idea ? A bug to squash? Or just wanna talk tech? I'm in.</p>
-        <p>Mail to: yashuyouwaraj123@gmail.com</p>
+        <p>If innovation is your goal, I’d love to be part of the journey — let’s connect.</p>
         <ul>
             {socials.map(({id,bg,link,icon,text})=>(
                 <li key={id} style={{backgroundColor:bg}}>

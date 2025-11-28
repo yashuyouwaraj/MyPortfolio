@@ -161,6 +161,13 @@ const socials = [
     bg: "#05b6f6",
     link: "https://www.linkedin.com/in/yashu-youwaraj/",
   },
+  {
+    id: 5,
+    text: "Mail",
+    icon: "/icons/mail.svg",
+    bg: "#ea4335",
+    link: "mailto:yashuyouwaraj123@gmail.com",
+  },
 ];
 
 const photosLinks = [
