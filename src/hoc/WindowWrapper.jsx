@@ -2,7 +2,7 @@ import useWindowStore from "#store/window";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 const WindowWrapper = (Component, windowKey) => {
   const Wrapped = (props) => {
@@ -63,16 +63,26 @@ const WindowWrapper = (Component, windowKey) => {
       return () => instance.kill();
     }, [isMinimized, isMaximized, focusWindow, windowKey]);
 
-    // Add click handler to restore from minimized state or focus window
-    const handleWindowClick = () => {
-      if (isMinimized) {
-        // If minimized, restore it and bring to front
-        restoreWindow(windowKey);
-      } else if (isOpen) {
-        // Always bring to front when clicked (even if already open and not minimized)
-        focusWindow(windowKey);
-      }
-    };
+    // Use capture phase to intercept clicks before they're stopped by child elements
+    React.useEffect(() => {
+      const windowEl = ref.current;
+      if (!windowEl || !isOpen) return;
+
+      const handleCaptureClick = () => {
+        if (isMinimized) {
+          restoreWindow(windowKey);
+        } else {
+          focusWindow(windowKey);
+        }
+      };
+
+      // Add listener in capture phase to intercept clicks
+      windowEl.addEventListener("click", handleCaptureClick, true);
+
+      return () => {
+        windowEl.removeEventListener("click", handleCaptureClick, true);
+      };
+    }, [isOpen, isMinimized, focusWindow, restoreWindow]);
 
     return (
       <section
@@ -87,7 +97,6 @@ const WindowWrapper = (Component, windowKey) => {
           minHeight: "200px",
           position: "absolute",
         }}
-        onClick={handleWindowClick}
       >
         <Component {...props} />
       </section>
