@@ -22,7 +22,6 @@ export default defineConfig({
       "#windows": resolve(dirname(fileURLToPath(import.meta.url)), "src/windows"),
       "#utils": resolve(dirname(fileURLToPath(import.meta.url)), "src/utils"),
       "#hooks": resolve(dirname(fileURLToPath(import.meta.url)), "src/hooks"),
-      "#mobile": resolve(dirname(fileURLToPath(import.meta.url)), "src/mobile"),
     },
   },
 });

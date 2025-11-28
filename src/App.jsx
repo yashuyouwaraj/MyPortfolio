@@ -4,7 +4,7 @@ import gsap from "gsap"
 import { useEffect, useState } from "react"
 
 import {Dock, Home, Navbar , Welcome, LoadingScreen, DesktopEntrance} from "#components"
-import { Contact, Finder, ImageContent, Photos, Resume, Safari, Terminal, Text, ArchiveWindow, AchievementPDF } from "#windows"
+import { Contact, Finder, ImageContent, Photos, Resume, Safari, Terminal, Text, ArchiveWindow, AchievementPDF, WorkExperience } from "#windows"
 import useThemeStore from "#store/theme"
 
 const App = () => {
@@ -39,6 +39,7 @@ const App = () => {
       <Photos />
       <ArchiveWindow />
       <AchievementPDF />
+      <WorkExperience />
 
       {/* Desktop content for tablet and above */}
       <DesktopEntrance isVisible={!isLoading}>

@@ -9,13 +9,11 @@ const LoadingScreen = ({ onComplete }) => {
   const progressBarRef = useRef(null);
   const particlesRef = useRef(null);
   const orbitRef = useRef(null);
-  const bubblesRef = useRef(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     const tl = gsap.timeline();
-    let loadingProgress = 0;
 
     // Create floating particles with gradient colors - dark theme
     const particleCount = 25;

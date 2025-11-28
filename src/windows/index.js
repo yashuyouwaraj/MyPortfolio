@@ -8,5 +8,6 @@ import Contact from "#windows/Contact";
 import Photos from "#windows/Photos";
 import ArchiveWindow from "#windows/ArchiveWindow.jsx";
 import AchievementPDF from "#windows/AchievementPDF.jsx";
+import WorkExperience from "#windows/WorkExperience.jsx";
 
-export {Terminal,Safari,Resume,Finder,Text,ImageContent,Contact,Photos,ArchiveWindow,AchievementPDF};
+export {Terminal,Safari,Resume,Finder,Text,ImageContent,Contact,Photos,ArchiveWindow,AchievementPDF,WorkExperience};

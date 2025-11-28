@@ -85,7 +85,7 @@ const Dock = () => {
                 }
                 // Then update state to bring to front (this happens after animation)
                 restoreWindow(app.id);
-            } catch (error) {
+            } catch {
                 // Handle error silently
             } finally {
                 isAnimatingRef.current = false;

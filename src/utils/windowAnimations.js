@@ -145,9 +145,6 @@ export const animateRestoreFromMaximize = (element, originalData = {}, options =
     duration = 0.35,
   } = options;
 
-  const restoreX = originalData.x !== undefined ? originalData.x : 0;
-  const restoreY = originalData.y !== undefined ? originalData.y : 0;
-
   return new Promise((resolve) => {
     // Animate back to original size/position using stored rect data
     const targetLeft = originalData.left !== undefined ? originalData.left : 0;

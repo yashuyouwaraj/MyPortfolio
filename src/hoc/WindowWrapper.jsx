@@ -7,7 +7,7 @@ import { useRef } from "react";
 const WindowWrapper = (Component, windowKey) => {
   const Wrapped = (props) => {
     const { focusWindow, windows, restoreWindow } = useWindowStore();
-    const { isOpen, zIndex, isMinimized, isMaximized, positionX, positionY } = windows[windowKey];
+    const { isOpen, zIndex, isMinimized, isMaximized } = windows[windowKey];
     const ref = useRef(null);
     const isAnimatingRef = useRef(false);
 
@@ -63,7 +63,7 @@ const WindowWrapper = (Component, windowKey) => {
     }, [isMinimized, isMaximized]);
 
     // Add click handler to restore from minimized state or focus window
-    const handleWindowClick = (e) => {
+    const handleWindowClick = () => {
       if (isMinimized) {
         // If minimized, restore it and bring to front
         restoreWindow(windowKey);

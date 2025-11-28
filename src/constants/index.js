@@ -72,57 +72,63 @@ const dockApps = [
     icon: "trash.png",
     canOpen: true,
   },
+  {
+    id: "workexperience",
+    name: "Experience",
+    icon: "maps.png",
+    canOpen: true,
+  },
 ];
 
 const blogPosts = [
   {
     id: 1,
-    date: "Sep 2, 2025",
+    date: "Nov 29, 2025",
     title:
-      "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
+      "🧑‍💻 What Still Slows React Developers Down While Building Modern UIs?",
     image: "/images/blog1.png",
-    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+    link: "https://why-react-ui-still-feels-slow.hashnode.dev/what-still-slows-react-developers-down-while-building-modern-uis",
   },
   {
     id: 2,
-    date: "Aug 28, 2025",
-    title: "The Ultimate Guide to Mastering Three.js for 3D Development",
+    date: "Nov 29, 2025",
+    title: "🚀 Why Micro-Frontends Are Becoming the Future of Scalable Web Apps (2025)",
     image: "/images/blog2.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
+    link: "https://frontend-microservices.hashnode.dev/why-micro-frontends-are-becoming-the-future-of-scalable-web-apps-2025",
   },
   {
     id: 3,
-    date: "Aug 15, 2025",
-    title: "The Ultimate Guide to Mastering GSAP Animations",
+    date: "Nov 29, 2025",
+    title: "🖥 Why React Server Components Are Changing Frontend Development in 2025",
     image: "/images/blog3.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+    link: "https://react-server.hashnode.dev/why-react-server-components-are-changing-frontend-development-in-2025",
   },
 ];
 
 const techStack = [
   {
     category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"],
+    items: ["React.js", "Next.js", "TypeScript", "JavaScript"],
   },
   {
     category: "Mobile",
-    items: ["React Native", "Expo"],
+    items: ["React Native"],
   },
   {
     category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
+    items: ["Tailwind CSS", "CSS"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    items: ["Node.js", "Express.js","Python", "Django","Java", "Spring Boot"],
   },
   {
     category: "Database",
-    items: ["MongoDB", "PostgreSQL"],
+    items: ["MongoDB", "PostgreSQL", "MySQL" ],
   },
   {
     category: "Dev Tools",
-    items: ["Git", "GitHub", "Docker"],
+    items: ["Git", "GitHub", "Docker","AWS","Jenkins","SonarQube"],
   },
 ];
 
@@ -132,28 +138,28 @@ const socials = [
     text: "Github",
     icon: "/icons/github.svg",
     bg: "#f4656b",
-    link: "https://github.com/JavaScript-Mastery-Pro",
+    link: "https://github.com/yashuyouwaraj",
   },
   {
     id: 2,
-    text: "Platform",
-    icon: "/icons/atom.svg",
+    text: "GeeksForGeeks",
+    icon: "/icons/GeeksForGeeks.svg",
     bg: "#4bcb63",
-    link: "https://jsmastery.com/",
+    link: "https://www.geeksforgeeks.org/profile/amanyasu?from=explore&tab=activity",
   },
   {
     id: 3,
-    text: "Twitter/X",
-    icon: "/icons/twitter.svg",
+    text: "LeetCode",
+    icon: "/icons/leetcode.svg",
     bg: "#ff866b",
-    link: "https://x.com/jsmasterypro",
+    link: "https://leetcode.com/u/yashuyouwaraj/",
   },
   {
     id: 4,
     text: "LinkedIn",
     icon: "/icons/linkedin.svg",
     bg: "#05b6f6",
-    link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+    link: "https://www.linkedin.com/in/yashu-youwaraj/",
   },
 ];
 
@@ -503,6 +509,96 @@ const WINDOW_CONFIG = {
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
   archive: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
   achievementpdf: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
+  workexperience: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMinimized: false, isMaximized: false, maximizeData: null, positionX: 0, positionY: 0, width: 0, height: 0 },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
+
+const achievementsByCategory = {
+  certifications: [
+    {
+      id: 1,
+      name: "Machine Learning",
+      file: "sample1.pdf",
+      dateEarned: "Nov 24, 2022",
+      icon: "📜",
+    },
+    {
+      id: 2,
+      name: "Databases and SQL for Data Science with Python",
+      file: "sample2.pdf",
+      dateEarned: "Nov 28, 2022",
+      icon: "📜",
+    },
+    {
+      id: 3,
+      name: "Python Programming:A Concise Introduction",
+      file: "sample3.pdf",
+      dateEarned: "Mar 19, 2022",
+      icon: "📜",
+    },
+  ],
+  publications: [
+    {
+      id: 4,
+      name: "Smart Mining System with Crystal Classification of Ores and Industrial Management",
+      file: "sample1.pdf",
+      dateEarned: "Apr 4, 2024",
+      icon: "📄",
+    },
+  ],
+  internships: [
+    {
+      id: 5,
+      name: "Verzeo Digital Marketing Internship",
+      file: "sample1.pdf",
+      dateEarned: "Aug 01, 2022 - Sep 09, 2022",
+      icon: "🎓",
+    },
+    {
+      id: 6,
+      name: "Verzeo Machine Learning with Python Internship",
+      file: "sample2.pdf",
+      dateEarned: "Aug 01, 2022 - Sep 09, 2022",
+      icon: "🎓",
+    },
+    {
+      id: 7,
+      name: "Personifwy Data Science with Python Internship",
+      file: "sample3.pdf",
+      dateEarned: "Aug 01, 2023 - Sep 30, 2023",
+      icon: "🎓",
+    },
+  ],
+};
+
+export { achievementsByCategory };
+
+const workExperiences = [
+  {
+    id: 1,
+    company: "Tata Consultancy Services",
+    designation: "Systems Engineer",
+    duration: "April 2025 - Present",
+    role: "Java Developer contributing to the design and development of a modern, secure, and scalable banking system",
+    tech: ["Java", "Spring Boot", "Microservices", "Git", "GitHub", "AWS","SonarQube", "Jenkins","Bitbucket","COBOL"],
+  },
+  // {
+  //   id: 2,
+  //   company: "Digital Innovations Ltd.",
+  //   designation: "Full Stack Developer",
+  //   duration: "Jan 2022 - May 2023",
+  //   role: "Developed end-to-end web applications, implemented real-time features, and managed database optimization",
+  //   tech: ["React", "Express.js", "MongoDB", "Next.js", "TailwindCSS", "AWS"],
+  // },
+  // {
+  //   id: 3,
+  //   company: "StartUp Hub",
+  //   designation: "Junior Web Developer",
+  //   duration: "Aug 2021 - Dec 2021",
+  //   role: "Built responsive UI components, fixed bugs, and collaborated with design team on UX improvements",
+  //   tech: ["React", "JavaScript", "CSS", "Git", "REST APIs", "Figma"],
+  // },
+];
+
+export { workExperiences };

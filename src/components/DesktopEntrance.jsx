@@ -26,7 +26,7 @@ const DesktopEntrance = ({ isVisible, children }) => {
       if (windows.length > 0) gsap.set(windows, { opacity: 0, scale: 0.9, y: 20 });
       if (home) gsap.set(home, { opacity: 0 });
     }
-  }, []);
+  }, [isVisible]);
 
   useEffect(() => {
     if (!contentRef.current) return;

@@ -1,62 +1,14 @@
 /**
  * AchievementsWindow Component
- * Displays achievements as PDFs organized by categories (Certifications, Publications)
+ * Displays achievements as PDFs organized by categories (Certifications, Publications, Internships)
  * Layout similar to Finder window with sidebar categories
  */
 
 import { WindowControls } from "#components";
 import WindowWrapper from "#hoc/WindowWrapper";
 import useWindowStore from "#store/window";
+import { achievementsByCategory } from "#constants";
 import { useState } from "react";
-
-const achievementsByCategory = {
-  certifications: [
-    {
-      id: 1,
-      name: "React Master",
-      file: "sample1.pdf",
-      dateEarned: "Nov 20, 2025",
-      icon: "📜",
-    },
-    {
-      id: 2,
-      name: "JavaScript Pro",
-      file: "sample2.pdf",
-      dateEarned: "Nov 18, 2025",
-      icon: "📜",
-    },
-    {
-      id: 3,
-      name: "Web Development",
-      file: "sample3.pdf",
-      dateEarned: "Nov 15, 2025",
-      icon: "📜",
-    },
-  ],
-  publications: [
-    {
-      id: 4,
-      name: "How to Master React",
-      file: "sample1.pdf",
-      dateEarned: "Oct 10, 2025",
-      icon: "📄",
-    },
-    {
-      id: 5,
-      name: "GSAP Animation Guide",
-      file: "sample2.pdf",
-      dateEarned: "Sep 25, 2025",
-      icon: "📄",
-    },
-    {
-      id: 6,
-      name: "JavaScript Best Practices",
-      file: "sample3.pdf",
-      dateEarned: "Sep 05, 2025",
-      icon: "📄",
-    },
-  ],
-};
 
 const AchievementsWindowContent = () => {
   const [activeCategory, setActiveCategory] = useState("certifications");
@@ -69,7 +21,7 @@ const AchievementsWindowContent = () => {
     <div key={categoryKey} className="mb-4">
       <h3>{name}</h3>
       <ul>
-        {Object.entries(achievementsByCategory).map(([key, items]) => (
+        {Object.entries(achievementsByCategory).map(([key]) => (
           <li
             key={key}
             onClick={() => {
@@ -78,9 +30,11 @@ const AchievementsWindowContent = () => {
             }}
             className={key === activeCategory ? "active" : "not-active"}
           >
-            <span className="icon">{key === "certifications" ? "🏆" : "📚"}</span>
+            <span className="icon">
+              {key === "certifications" ? "🏆" : key === "publications" ? "📚" : "🎓"}
+            </span>
             <p className="text-sm font-medium truncate">
-              {key === "certifications" ? "Certifications" : "Publications"}
+              {key === "certifications" ? "Certifications" : key === "publications" ? "Publications" : "Internships"}
             </p>
           </li>
         ))}

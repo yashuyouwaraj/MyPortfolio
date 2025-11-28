@@ -1,5 +1,4 @@
 import useThemeStore from "#store/theme";
-import { useEffect } from "react";
 
 const ThemeToggle = () => {
   const { isDarkMode, toggleDarkMode } = useThemeStore();

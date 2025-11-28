@@ -3,24 +3,20 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import {
-  animateClose,
-  animateMinimize,
-  animateRestoreFromMaximize,
-  animateRestore,
-  animateMaximize,
-} from "#utils/windowAnimations";
+    animateClose,
+    animateMinimize,
+    animateRestoreFromMaximize,
+    animateMaximize,
+  } from "#utils/windowAnimations";
 
 const WindowControls = ({ target }) => {
   const {
     closeWindow,
     minimizeWindow,
-    restoreWindow,
     maximizeWindow,
     restoreFromMaximize,
     windows,
-  } = useWindowStore();
-
-  const controlsRef = useRef(null);
+  } = useWindowStore();  const controlsRef = useRef(null);
   const isAnimatingRef = useRef(false);
 
   useGSAP(() => {
@@ -61,7 +57,7 @@ const WindowControls = ({ target }) => {
         await animateClose(windowEl, { duration: 0.25 });
       }
       closeWindow(target);
-    } catch (error) {
+    } catch {
       // Silently handle close errors
     } finally {
       isAnimatingRef.current = false;
@@ -82,7 +78,7 @@ const WindowControls = ({ target }) => {
         await animateMinimize(windowEl, { duration: 0.35 });
       }
       minimizeWindow(target);
-    } catch (error) {
+    } catch {
       // Silently handle minimize errors
     } finally {
       isAnimatingRef.current = false;
@@ -133,7 +129,7 @@ const WindowControls = ({ target }) => {
         // animation already set inline fixed/width/height; now update store with original data
         maximizeWindow(target, originalData);
       }
-    } catch (error) {
+    } catch {
       // Silently handle maximize errors
     } finally {
       isAnimatingRef.current = false;
