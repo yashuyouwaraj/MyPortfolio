@@ -25,7 +25,7 @@ const Finder = () => {
         {items.map((item) => (
           <li
             key={item.id}
-            onClick={() => SetActiveLocation(item)}
+            onClick={() => openItem(item)}
             className={clsx(
               item.id === activeLocation.id ? "active" : "not-active"
             )}

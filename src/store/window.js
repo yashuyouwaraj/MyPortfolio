@@ -34,6 +34,15 @@ const useWindowStore = create(
         if (data !== null) {
           win.data = data;
         }
+        
+        // If window is minimized, restore it and bring to front
+        if (win.isMinimized) {
+          win.isMinimized = false;
+          win.zIndex = state.nextZIndex++;
+          state.minimizedWindows = state.minimizedWindows.filter(w => w !== windowKey);
+          return;
+        }
+        
         // If window is already open, just focus it (bring to front)
         if (win.isOpen) {
           win.zIndex = state.nextZIndex++;
@@ -70,6 +79,9 @@ const useWindowStore = create(
         if (!win) return;
         win.isMinimized = true;
         win.isMaximized = false;
+        // Update z-index when minimizing to maintain it
+        win.zIndex = state.nextZIndex++;
+        // Keep isOpen true so window can be restored
         if (!state.minimizedWindows.includes(windowKey)) {
           state.minimizedWindows.push(windowKey);
         }
@@ -80,6 +92,8 @@ const useWindowStore = create(
       set((state) => {
         const win = state.windows[windowKey];
         if (!win) return;
+        // Ensure window is open when restored
+        win.isOpen = true;
         win.isMinimized = false;
         win.zIndex = state.nextZIndex++;
         state.minimizedWindows = state.minimizedWindows.filter(w => w !== windowKey);

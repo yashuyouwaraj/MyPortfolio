@@ -29,7 +29,7 @@ const LoadingScreen = ({ onComplete }) => {
     const particlesHTML = Array.from({ length: particleCount })
       .map(
         (_, i) => `
-      <div class="absolute rounded-full bg-gradient-to-br ${colors[i % colors.length]} opacity-60 blur-sm"
+      <div class="absolute rounded-full ${colors[i % colors.length]} opacity-60 blur-sm"
         style="
           left: ${Math.random() * 100}%; 
           top: ${Math.random() * 100}%;

@@ -16,6 +16,9 @@ const WindowWrapper = (Component, windowKey) => {
       const el = ref.current;
       if (!el) return;
 
+      // Kill any existing animations to prevent conflicts
+      gsap.killTweensOf(el);
+
       if (isOpen && !isMinimized) {
         // Show element first, then animate
         el.style.display = "block";
@@ -24,8 +27,8 @@ const WindowWrapper = (Component, windowKey) => {
           { scale: 0.8, opacity: 0, y: 40 },
           { scale: 1, opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }
         );
-      } else if (isMinimized || !isOpen) {
-        // Hide element
+      } else {
+        // Hide element when minimized or closed
         gsap.to(el, {
           opacity: 0,
           scale: 0.8,
@@ -59,19 +62,15 @@ const WindowWrapper = (Component, windowKey) => {
       return () => instance.kill();
     }, [isMinimized, isMaximized]);
 
-    // Add click handler to restore from minimized state (if clicked from dock)
-    const handleMinimizedRestore = (e) => {
-      if (e.target === ref.current && isMinimized) {
-        restoreWindow(windowKey);
-      }
-    };
-
-    // Add click handler to focus window when clicking anywhere on it
+    // Add click handler to restore from minimized state or focus window
     const handleWindowClick = (e) => {
-      if (isOpen && !isMinimized) {
+      if (isMinimized) {
+        // If minimized, restore it and bring to front
+        restoreWindow(windowKey);
+      } else if (isOpen && !isMinimized) {
+        // If open and not minimized, focus it (bring to front)
         focusWindow(windowKey);
       }
-      handleMinimizedRestore(e);
     };
 
     return (

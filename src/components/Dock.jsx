@@ -74,16 +74,19 @@ const Dock = () => {
             return;
         }
 
-        // If window is minimized, restore it
+        // If window is minimized, restore it with animation
         if (window.isMinimized) {
             isAnimatingRef.current = true;
             try {
                 const windowEl = document.getElementById(app.id);
                 if (windowEl) {
-                    // Restore with animation from dock position
+                    // Animate restore first
                     await animateRestore(windowEl, {}, { duration: 0.35 });
                 }
+                // Then update state to bring to front (this happens after animation)
                 restoreWindow(app.id);
+            } catch (error) {
+                // Handle error silently
             } finally {
                 isAnimatingRef.current = false;
             }

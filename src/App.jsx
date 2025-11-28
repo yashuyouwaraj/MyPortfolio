@@ -28,23 +28,23 @@ const App = () => {
         />
       )}
       
-      {/* Desktop content loads in background during loading screen */}
+      {/* All windows rendered */}
+      <Terminal />
+      <Safari />
+      <Resume />
+      <Finder />
+      <Text />
+      <ImageContent />
+      <Contact />
+      <Photos />
+      <ArchiveWindow />
+      <AchievementPDF />
+
+      {/* Desktop content for tablet and above */}
       <DesktopEntrance isVisible={!isLoading}>
         <Navbar />
         <Welcome />
         <Dock />
-
-        <Terminal />
-        <Safari />
-        <Resume />
-        <Finder />
-        <Text />
-        <ImageContent />
-        <Contact />
-        <Photos />
-        <ArchiveWindow />
-        <AchievementPDF />
-
         <Home />
       </DesktopEntrance>
     </main>
