@@ -161,3 +161,4 @@ and upload the `dist/` folder or connect the repo.
 This is a personal portfolio.  
 You can use ideas/designs for learning and inspiration.
 
+Developed By Yashu Youwaraj
