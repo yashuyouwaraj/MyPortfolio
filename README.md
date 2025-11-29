@@ -1,3 +1,5 @@
+<img src="public\images\Home.png" alt="Home" />
+
 # 🌟 Yashu's Portfolio
 
 A modern, interactive **macOS–inspired portfolio** built with **React, Tailwind CSS, GSAP, and Zustand**.  
@@ -19,6 +21,8 @@ This portfolio replicates a **desktop operating system** experience with:
 - Light/Dark theme  
 - Smooth, high-quality animations  
 
+<img src="public/images/Last.png" alt="MacOS" />
+
 Highly polished with GSAP motion effects, custom window management logic, and a responsive design.
 
 ---
@@ -34,7 +38,9 @@ Highly polished with GSAP motion effects, custom window management logic, and a 
 - 📄 **Resume & Achievement PDFs**  
 - 👉 **Window Toggle System** (open/close on click)  
 - 💬 **Contact Window**  
-- 🛠 **Terminal-style Skills Window**  
+- 🛠 **Terminal-style Skills Window** 
+
+<img src="public/images/Dark.png" alt="Windows" />
 
 ---
 
@@ -57,6 +63,8 @@ Highly polished with GSAP motion effects, custom window management logic, and a 
 - React PDF  
 - dayjs  
 - clsx  
+
+<img src="public/images/Mid.png" alt="Tech Stack" />
 
 ---
 
@@ -81,6 +89,8 @@ src/
 - **Light Mode** — clean & minimal  
 - **Dark Mode** — slate palette with blue accents  
 - Backgrounds auto-switch using Zustand theme store.
+
+<img src="public/images/DarkMode.png" alt="Dark Mode" />
 
 ---
 
