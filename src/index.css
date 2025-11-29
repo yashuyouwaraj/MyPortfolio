@@ -265,7 +265,7 @@ body {
 
   #photos {
     @apply absolute top-96 left-1/2 -translate-y-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
-    max-width: 32rem;
+    max-width: 40rem;
   }
 
   #photos .sidebar {
